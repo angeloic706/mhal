@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="french">
+    <head>
+        <title>MHAL Natural Foods</title>
+        <link rel="icon" type="image/png" href="img/MHAL NATURAL FOOD Head Logo.png">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="javascript/script.js"></script>
+        <meta name="viewport" content="with=device-with,initial-scale=1.0">
+        <meta charset="UTF-8">
+        <script language="JavaScript">
+            document.addEventListener("DOMContentLoaded", () => {
+    // 1. Ligne modifiée pour cibler tous les blocs produits de votre boutique
+    const produits = document.querySelectorAll(".produit");
+
+    // 2. Bloc pour le flou automatique (crée le calque en arrière-plan sans toucher à votre CSS)
+    const calqueFlou = document.createElement("div");
+    calqueFlou.style.position = "fixed";
+    calqueFlou.style.top = "0";
+    calqueFlou.style.left = "0";
+    calqueFlou.style.width = "100vw";
+    calqueFlou.style.height = "100vh";
+    calqueFlou.style.background = "rgba(0, 0, 0, 0.3)";
+    calqueFlou.style.backdropFilter = "blur(8px)";
+    calqueFlou.style.webkitBackdropFilter = "blur(8px)";
+    calqueFlou.style.zIndex = "9998"; // Reste sous le menu pour qu'il soit net
+    calqueFlou.style.display = "none";
+    document.body.appendChild(calqueFlou);
+
+    let menuActif = null;
+
+    // 3. Structure de la boucle pour que chaque bouton ouvre son propre menu
+    produits.forEach((produit) => {
+        const infoBtn = produit.querySelector(".infos");
+        const menuInfos = produit.querySelector(".menu_infos");
+
+        if (infoBtn && menuInfos) {
+            infoBtn.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (window.getComputedStyle(menuInfos).display === "none") {
+                    if (menuActif) menuActif.style.display = "none";
+
+                    // Affiche le flou d'arrière-plan
+                    calqueFlou.style.display = "block";
+
+                    // Force le menu à s'afficher proprement au-dessus du flou
+                    menuInfos.style.display = "block";
+                    menuInfos.style.position = "fixed";
+                    menuInfos.style.top = "50%";
+                    menuInfos.style.left = "50%";
+                    menuInfos.style.transform = "translate(-50%, -50%)";
+                    menuInfos.style.zIndex = "9999"; // Passe devant le flou pour rester NET
+                    menuInfos.style.width = "30dvw";
+                    menuInfos.style.maxWidth = "90%";
+                    menuInfos.style.height = "45dvw";
+                    menuInfos.style.overflowY = "auto";   
+                    menuInfos.style.backgroundColor = "rgb(14,43,14)"; // Fond blanc solide obligatoire pour bloquer le flou
+
+                    menuActif = menuInfos;
+                } else {
+                    menuInfos.style.display = "none";
+                    calqueFlou.style.display = "none";
+                    menuActif = null;
+                }
+            });
+        }
+    });
+
+    // Écouteur pour fermer le menu si on clique sur le flou
+    calqueFlou.addEventListener("click", () => {
+        if (menuActif) menuActif.style.display = "none";
+        calqueFlou.style.display = "none";
+        menuActif = null;
+    });
+});
+
+        </script>
+    </head>
+    <style>
+        .accueil{
+            background-image: linear-gradient(rgba(29,38,27,0.35),rgba(29,38,27,0.35)), url('img/image.png');
+            background-size: cover;
+            background-position: center center;
+            z-index: 1;
+}
+    </style>
+    <body>
+        <header>
+            <div class="header-box">
+                <div class="logo-container">
+                    <img src="img/MHAL.png" alt="MHAL NATURAL FOOD">
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#boutique">Boutique</a></li>
+                        <li><a href="#a propos">A propos</a></li>
+                        <li><a href="#contact"> Contacts</a></li>
+                    </ul>
+                </div>
+               
+            <div class="panier">
+               <button class="icone-panier-container" id="boutonPanier">
+             <span class="icone-panier"><a href="#form_validation">🛒</a></span>
+             <span class="badge-panier" id="compteurPanier">0</span>
+             </button>
+            </div>
+             <nav class="navbar">
+    <!-- Bouton hamburger pour mobile -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Liens de navigation -->
+    <ul class="nav-links" id="nav-menu">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#boutique">Boutique</a></li>
+        <li><a href="#a propos">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+            </div>
+        </header>
+<!--Corps-->
+        <main>
+<!--Accueil-->
+            <section class="accueil" id="accueil">
+                <div class="intro">
+                    <h1>La nature, sans detour,<br>jusqu'a votre table.</h1>
+                    <p>Une boutique qui vous sert uniquement des produits de qualites, selectionnes avec soins</p>
+                </div><br>
+                <div class="right">
+                    <button>
+                        <a href="#boutique">Voir la boutique</a>
+                    </button>
+                </div>
+            </section>
+            <section class="boutique" id="boutique">
+                <div class="shop">
+                    <h1>BOUTIQUE</h1>
+                    <h2>Nos differents produits</h2>
+                    <div class="produits">
+                    <div class="produit">
+                            <img src="img/baobab.png" alt="Baobab" data-id="baobab">
+                            <p> Sachet de <span>Baobab</span> en poudre <br>Masse:200g<br>Prix:1000XFA</p>
+                            <button class="infos" id="infos_btn">
+                                <a href="#menu_infos"> Plus d'informations</a>
+                            </button> 
+                            <button onclick="ajouter('baobab')">
+                                <a href="#baobab">🛒</a>
+                            </button>
+                            <div class="menu_infos" id="menu_infos">
+                                <img src="img/Baobab.png" alt="Baobab">
+                                <button onclick="ajouter('baobab')">
+                                <a href="#baobab">Ajouter au panier</a>
+                            </button>
+                                <p><span>Vertu:</span>Le baobab en poudre est un super-aliment exceptionnel. Ultra-riche en vitamine C, en fibres et en antioxydants, il booste l'énergie, renforce le système immunitaire et facilite grandement la digestion. Il apporte également une excellente dose de calcium et de potassium pour le tonus musculaire. Il se consomme facilement mélangé dans de l'eau, des jus de fruits, des yaourts ou des smoothies.
+                                <br> <span>Consommation:</span>Il se consomme facilement mélangé dans de l'eau, des jus de fruits, des yaourts , des smoothies ,des bouillies ou sous forme de jus. </p>
+                            </div>                       
+                    </div>
+                    <div class="produit">
+                            <img src="img/datte.jpeg" alt="datte" data-id="datte">
+                            <p> Sachet de <span>datte</span> en poudre <br>Masse:50g<br>Prix:1000XFA</p>
+                            <button class="infos" id="infos_btn">
+                                <a href="#menu_infos"> Plus d'informations</a>
+                            </button> 
+                            <button onclick="ajouter('datte')">
+                                <a href="#datte">🛒</a>
+                            </button>
+                            <div class="menu_infos" id="menu_infos">
+                                <img src="img/datte.jpeg" alt="datte">
+                                <button onclick="ajouter('datte')">
+                                <a href="#datte">Ajouter au panier</a>
+                            </button>
+                                <p><span>Vertu:</span> La datte en poudre est l'alternative parfaite, 100% naturelle et fruitée, pour remplacer le sucre blanc. Très riche en fibres alimentaires, elle régule le transit intestinal et offre une énergie durable sans piquer la glycémie. Elle regorge de minéraux essentiels comme le fer, le potassium et le magnésium, idéaux pour lutter contre la fatigue.
+                                <br> <span>Consommation:</span>Elle est parfaite pour la pâtisserie, les yaourts et les bouillies des enfants. </p>
+                            </div>                       
+                    </div>
+                    <div class="produit">
+                            <img src="img/miel.png" alt="miel" data-id="miel">
+                            <p> Bouteille de <span>miel</span><br>Quantite:1L<br>Prix:3000XFA</p>
+                            <button class="infos" id="infos_btn">
+                                <a href="#menu_infos"> Plus d'informations</a>
+                            </button> 
+                            <button onclick="ajouter('miel')"> 
+                                <a href="#miel">🛒</a>
+                            </button>
+                            <div class="menu_infos" id="menu_infos">
+                                <img src="img/miel.png" alt="miel">
+                                <button onclick="ajouter('miel')">
+                                <a href="#miel">Ajouoter au panier</a>
+                            </button>
+                                <p><span>Vertu:</span>Le miel naturel est un véritable trésor thérapeutique et un excellent substitut sain au sucre raffiné. Connu pour ses propriétés antibactériennes, antiseptiques et anti-inflammatoires, il apaise instantanément les maux de gorge et calme la toux. Riche en nutriments et en antioxydants, il booste l'énergie naturelle et renforce les défenses de l'organisme.
+                                <br> <span>Consommation:</span> Idéal pour sucrer vos infusions, vos bouillies, ou du lait.</p>
+                            </div>                       
+                    </div>
+                    <div class="produit">
+                            <img src="img/Folore.png" alt="Folere" data-id="folere">
+                            <p> Sachet de <span>tisane de folere</span>  <br>10 tisanes<br>Prix:1000XFA</p>
+                            <button class="infos" id="infos_btn">
+                                <a href="#menu_infos"> Plus d'informations</a>
+                            </button> 
+                            <button onclick="ajouter('folere')">
+                                <a href="#folere">🛒</a>
+                            </button>
+                            <div class="menu_infos" id="menu_infos">
+                                <img src="img/Folore.png" alt="Folere">
+                                <button onclick="ajouter('folere')">
+                                <a href="#folere">Ajouter au panier</a>
+                            </button>
+                                <p><span>Vertu:</span> Le foléré (bissap) est un puissant remède naturel. Il régule la tension, combat l'anémie grâce à sa richesse en fer et en vitamine C, et facilite la digestion. Gorgé d'antioxydants, il élimine les toxines et calme efficacement les crampes menstruelles.
+                                <br> <span>Consommation:</span> Se consomme sous forme de jus ou en infusion chaude(Contient de la menthe et de la canelle) </p>
+                            </div>                       
+                    </div>
+                    <div class="produit">
+                            <img src="img/Curcuma.jpeg" alt="Curcuma" data-id="curcuma">
+                            <p> Sachet de <span>Curcuma</span> en poudre <br>Masse:50g<br>Prix:1000XFA</p>
+                            <button class="infos" id="infos_btn">
+                                <a href="#menu_infos"> Plus d'informations</a>
+                            </button> 
+                            <button onclick="ajouter('curcuma')">
+                                <a href="#curcuma">🛒</a>
+                            </button>
+                            <div class="menu_infos" id="menu_infos">
+                                <img src="img/Curcuma.jpeg" alt="Curcuma">
+                                <button onclick="ajouter('curcuma')">
+                                <a href="#curcuma">Ajouter au panier</a>
+                            </button>
+                                <p><span>Vertu:</span> Le curcuma est l'épice de la santé par excellence, réputée pour ses vertus médicinales puissantes. Grâce à la curcumine, c'est un anti-inflammatoire et un antioxydant naturel hors pair qui protège les articulations et soulage les douleurs. Il purifie le foie, améliore la digestion et protège le système cardiovasculaire. Pour maximiser ses bienfaits, associez-le toujours à une pincée de poivre noir.
+                                <br> <span>Consommation:</span> Parfaite dans les yaourts ,les bouillies, les jus naturels ou simplement sous forme d'infusion chaude.</p>
+                            </div>                       
+                    </div>
+                    <div class="produit">
+                            <img src="img/Piment.png" alt="piment" data-id="piment">
+                            <p> Boite  de <span>piment </span> en poudre <br>Masse:50g<br>Prix:650XFA</p>
+                            <button class="infos" id="infos_btn">
+                                <a href="#menu_infos"> Plus d'informations</a>
+                            </button> 
+                            <button onclick="ajouter('piment')">
+                                <a href="#piment">🛒</a>
+                            </button>
+                            <div class="menu_infos" id="menu_infos">
+                                <img src="img/Piment.png" alt="piment">
+                                <button onclick="('piment')">
+                                <a href="#piment">Ajouter au panier</a>
+                            </button>
+                                <p><span>Vertu:</span> Le piment en poudre est un puissant stimulant pour l'organisme. Grâce à sa richesse en capsaïcine, il accélère le métabolisme, favorise la combustion des graisses et facilite la digestion en stimulant les sucs gastriques. C'est aussi un excellent anti-inflammatoire et antioxydant naturel qui aide à réguler la circulation sanguine. À utiliser avec parcimonie pour relever et assainir vos plats.
+                                <br> <span>Consommation:</span>À utiliser avec parcimonie pour relever et assainir vos plats.</p>
+                            </div> 
+                                               
+                    </div>                
+                    </div>
+                    </div>
+                    <!-- RÉCAPITULATIF DU PANIER -->
+<div class="panier-section">
+    <h2> Votre Commande</h2>
+    <p>Nombre d'articles : <span id="badge-compteur">0</span></p>
+    <p>Montant Total : <strong><span id="prix-total">0 XFA</span></strong></p>
+</div>
+
+<!-- FORMULAIRE CLASSIQUE DE COMMANDE -->
+<div class="formulaire-section" id="form_validation">
+    <h3> Informations de livraison</h3>
+    
+    <label>Nom complet :</label><br>
+    <input type="text" id="client-nom" placeholder="Votre nom" required><br><br>
+
+    <label>Téléphone WhatsApp :</label><br>
+    <input type="tel" id="client-tel" placeholder="Ex: 6xxxxxxxx" required><br><br>
+
+    <label>Quartier/Ville:</label><br>
+    <input type="text" id="client-quartier" placeholder="Ex: Bastos,Obili..." required><br><br>
+    <p><span>NB:</span> L'expedition ou la livraison se font aux frais du client.Pour les expeditions le paiement se fait a l'avance.</p>
+
+    <!-- Bouton pour envoyer -->
+    <button id="bouton-valider" onclick="envoyerCommande()"> Confirmer et commander via WhatsApp</button>
+</div>
+
+                </div>
+            </section>
+            <section class="propos" id="a propos">
+                <div class="mhal_info">
+                <div class="description">
+                    <h3>A propos de nous</h3>
+                <p> <span>MHAL </span>est une entreprise qui fait dans la  production et  la  vente d'aliments naturels bases au Cameroun a Yaounde .Elles tient a resoudre un probleme important: la consommation d'aliments de  mauvaise qualité ou  bourre  de  produits  chimiques nocif a  longterme pour  notre organisme.Nous mettons un grand engouement quant a la qualité des produits fabriqués puis vendus </p>
+                </div>
+                <div class="procede">
+                    <h3>Comment nous procedons?</h3>
+                    <ul>
+                        <li>Pour la fabrications des produits</li>
+                        <p>Nous trions les meilleurs produits pris dans les 4 coins du Cameroun, cultives et conserves soignesement pour vous satisfaire.Les operations de transformation en poudre se font sans ajout de produit chimique et dans le respect des regles d'hygiene et de salubrite. </p>
+                        <li>Pour la distribution de nos produits</li>
+                        <p>Nous livrons dans tous Yaoundé et expedions dans les grandes villes du pays et en Europe(Zone de UE).
+                            <span>NB:</span> L'expedition se fait sur les frais du client
+                        </p>
+                        <p>Malheuresement nous n'avons pas encore d'espace de vente physique.</p>
+                    </ul>
+                </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="menu_footer" id="contact" >
+                <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#boutique">Boutique</a></li>
+                        <li><a href="#a propos">A propos</a></li>
+                        <li><a href="#contact"> Contacts</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <button>
+                    <a href="whttps://wa.me/237658995818" target="_blank" class="bouton-whatsapp">
+                         <img src="img/whatsapp.png" alt="whatsapp">
+                    </a>
+                </button>
+                <button>
+                    <a href="https://wa.me/237651363546" target="_blank" class="bouton-whatsapp business">
+                         <img src="img/whatsapp business.png" alt="whatsapp">
+                    </a>
+                </button>
+                <button>
+                    <a href="https://www.instagram.com/mhal_natural_food/" target="_blank" class="bouton-insta">
+                         <img src="img/instagram.png" alt="whatsapp">
+                    </a>
+                    
+                </button>
+            </div>
+             <p> &copy; 2026 MHAL Natural Foods. Tous droits reserves.</p>
+        </footer>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
+
+// Ouvre et ferme le menu au clic sur le bouton
+hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Ferme le menu automatiquement dès qu'un lien est cliqué
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
+</script>
+    </body>
+</html>
