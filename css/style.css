@@ -1,0 +1,805 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family:DM Sans;
+}
+
+header{
+   width: 100vw;
+   height: 6rem;    
+   background-color: rgb(236, 210, 176);
+   border-bottom: 1.5px solid rgb(102, 45, 19);
+   position: fixed;
+    top:0;
+    box-sizing: border-box;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-box{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 80px;
+      margin-left: 10% ;
+      margin-right:10%
+}
+.logo-container{
+    width: 210px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4px 6px;
+}
+.logo-container img{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.menu{
+    display: flex;
+}
+
+.menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+
+}
+.menu ul li {
+    list-style:none;
+    transition: 0.5s;
+}
+.menu li:hover{
+    transform: scale(1.1);
+}
+.menu ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    font-family: Work Sans;
+}
+.icone-panier-container a{
+    text-decoration: none;
+}
+.icone-panier-container {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 28px; /* Taille de l'icône */
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+
+/* Effet discret au survol */
+.icone-panier-container:hover {
+  transform: scale(1.1);
+}
+
+/* Petit badge rouge pour le compteur */
+.badge-panier {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: rgb(252, 143, 0); /* Rouge vif */
+  color: white;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/*Accueil*/
+main{
+    min-height: 200vh;
+}
+.accueil{
+    height: 30rem;
+    padding: 6%;
+}
+
+.intro h1{
+    margin: 0;
+    font-size: 80px;
+    color: rgb(238, 206, 176);
+    font-family: DM Sans;
+}
+.intro p{
+    margin: 0;
+    font-size: 20px;
+    color: rgb(238, 206, 176);
+    font-family: DM Sans;
+}
+.accueil{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.right button{
+    border: 0;
+    background:transparent;
+    transition: 0.5s;
+}
+.right button:hover{
+    transform: scale(1.1);
+}
+.right button a{
+    font-size: 12px;
+    font-family: DM Sans;
+    color: #000;
+    padding: 10px 25px;
+    background: linear-gradient(rgb(255, 186, 122));
+    border-radius: 6px;
+    text-transform: uppercase;
+    line-height: 1px;
+    text-decoration: none;
+}
+
+.boutique{
+    background-color: rgb(236, 210, 176);
+    border-top: 1.5px solid rgb(102, 45, 19);
+    border-bottom: 1.5px solid rgb(102, 45, 19);
+    min-height: 25rem;
+}
+.produits{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.shop{
+    margin:8%;
+}
+.shop h1{
+    margin: 0;
+    font-family: DM Sans;
+    color:rgb(14, 43, 14);
+    text-align: center;
+    text-decoration:underline;
+}
+.shop h2{
+    margin: 40px;
+    font-family: DM Sans;
+    color:rgb(14, 43, 14);
+    text-align: left;
+    text-decoration: underline;
+}
+.produit{
+    border: 2px solid rgb(102, 45, 19) ;
+    background-color: rgb(14, 43, 14);
+    color: rgb(236, 210, 176);
+    text-align:center;
+    padding: 4% 3%;
+    width: 20dvw;
+    height: 38dvw;
+    position: relative;
+    display: inline-block;
+}
+.menu_infos{
+    display: none;
+    position: absolute;
+    margin-top: 8px;
+    width: 280px;
+    background-color: rgb(14, 43, 14);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    padding: 16px;
+    font-family: DM Sans;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    width: 20dvw;
+    max-width: 90%;
+    height: 30dvw;
+    overflow-y: auto;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+.menu_infos p span{
+    text-decoration: underline;
+    font-weight: bolder;
+}
+.menu_infos button{
+    border: 0;
+    background:transparent;
+}
+
+.menu_infos button a{
+    font-size: 12px;
+    font-family: DM Sans;
+    color: #000;
+    padding: 10px 25px;
+    background: linear-gradient(rgb(255, 186, 122));
+    border-radius: 6px;
+    text-transform: uppercase;
+    line-height: 1px;
+    text-decoration: none;
+}
+.shop h3{
+    text-decoration: underline;
+    margin: 14px;
+}
+/* Conteneur principal qui centre tout sur la page */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. SECTION RÉCAPITULATIF DU PANIER
+   ========================================================================== */
+.panier-section {
+    display: block;
+    background-color: rgb(255, 186, 122);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eeeeee;
+}
+
+.panier-section h2 {
+    color: #2e7d32; /* Vert rappelant la nourriture naturelle/MHAL */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e8f5e9;
+    padding-bottom: 10px;
+}
+
+.panier-section p {
+    font-size: 1.1rem;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-between; /* Aligne le texte à gauche et le chiffre à droite */
+}
+
+#prix-total {
+    color: #2e7d32;
+    font-size: 1.3rem;
+}
+
+/* ==========================================================================
+   3. SECTION FORMULAIRE DE COMMANDE
+   ========================================================================== */
+.formulaire-section {
+    background-color: rgb(255, 186, 122);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eeeeee;
+    display: block;
+}
+
+.formulaire-section h3 {
+    color: #333333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+/* Style des étiquettes (Textes au-dessus des cases) */
+.formulaire-section label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: black;
+    font-size: 0.95rem;
+}
+
+/* Style des cases de saisie (Inputs) */
+.formulaire-section input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease; /* Animation fluide quand on clique dessus */
+    box-sizing: border-box; /* Évite que l'input dépasse du cadre */
+}
+
+/* Changement de couleur quand l'utilisateur clique dans la case */
+.formulaire-section input:focus {
+    border-color: #2e7d32;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* ==========================================================================
+   4. BOUTON DE VALIDATION (STYLE WHATSAPP)
+   ========================================================================== */
+#bouton-valider {
+    width: 100%;
+    background-color: #0e6d31; /* Le vert officiel de WhatsApp */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+/* Effet au survol de la souris (uniquement si le bouton n'est pas bloqué) */
+#bouton-valider:hover:not(:disabled) {
+    background-color: #1cbd57;
+    transform: translateY(-1px); /* Légère impulsion vers le haut */
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+/* Effet quand on clique sur le bouton */
+#bouton-valider:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+/* Style automatique géré par le JS quand le panier est vide */
+#bouton-valider:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.produit button{
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 20px; /* Taille de l'icône */
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+.produit button a{
+    text-decoration: none;
+}
+.produit img{
+    width:18dvw ;
+    height: 26dvw;
+}
+.produit p span{
+    font-weight: bolder;
+}
+
+/* Effet discret au survol */
+.produit button:hover {
+  transform: scale(1.1);
+}
+
+.infos {
+    border: 0;
+    background:transparent;
+}
+
+.infos a{
+    font-size: 12px;
+    font-family: DM Sans;
+    color: #000;
+    padding: 10px 25px;
+    background: linear-gradient(rgb(255, 186, 122));
+    border-radius: 6px;
+    text-transform: uppercase;
+    line-height: 1px;
+    text-decoration: none;
+}
+/* A propos*/
+
+.propos{
+    background-color: rgb(236, 210, 176);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgb(102, 45, 19);
+}
+.mhal_info{ 
+    margin: auto; 
+}
+.description{
+    margin: 6%;
+}
+.description h3{
+    margin: 0;
+    text-decoration: underline;
+    font-size: 32px;
+}
+.description p{
+    text-align: justify;
+    font-size: 18px;
+}
+.description p span{
+    color: rgb(14, 43, 14);
+}
+.procede{
+    margin:6%;
+    font-size: 18px;
+}
+.procede h3{
+    text-decoration: underline;
+    font-size: 32px;
+}
+.procede ul li{
+    list-style:inside;
+}
+/*Contact*/
+
+footer{
+    background-color: rgb(102, 45, 19);
+    min-height: 8dvw;
+}
+.menu_footer{
+    text-align: center;
+}
+.menu_footer ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:0px;
+    margin: 0;
+}
+.menu_footer ul li {
+    list-style: none;
+    text-align:unset;
+}
+
+.menu_footer ul li a {
+    text-decoration: none;
+    color:rgb(236, 210, 176);
+    margin-left: 2%;
+    margin-right: 2%;
+    white-space: nowrap;
+}
+.contact{
+    text-align: center;
+}
+.contact button{
+    border-radius: 50%;
+    width: 60px;
+    width: 60px;
+    background: transparent;
+    border: 0;
+}
+.contact button a img{
+    width: 80%;
+    height: 80%;
+}
+footer p{
+    color: rgb(236, 210, 176);
+    text-align: center;
+    margin: 0;
+}
+/* Section du formulaire de livraison */
+.formulaire-livraison {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid rgb(102, 45, 19); /* Votre marron */
+}
+
+.formulaire-livraison h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: rgb(14, 43, 14); /* Votre vert foncé */
+}
+
+/* Alignement des étiquettes et des champs */
+.champ-formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.champ-formulaire label {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(102, 45, 19);
+}
+
+/* Style des zones de saisie de texte */
+.champ-formulaire input {
+    padding: 10px;
+    border: 1.5px solid rgb(102, 45, 19);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: #000;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Effet au clic dans la zone de texte */
+.champ-formulaire input:focus {
+    border-color: rgb(14, 43, 14);
+    background-color: rgb(255, 255, 255);
+}
+/*Mobile Responsive*/
+
+@media(max-width:1024px){
+    .header-box{
+        gap: 30px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .menu ul{
+        gap: 24px;
+    }
+    .intro h1{
+        font-size: 56px;
+    }
+    .produit{
+        width: 28dvw;
+        height: 46dvw;
+    }
+}
+
+@media(max-width:786px){
+    .header-box{
+        margin-left: 4%;
+        margin-right: 4%;
+        gap: 16px;
+    }
+    .logo-container{
+        width: 150px;
+        height: 64px;
+    }
+    .hamburger{
+        display: flex;
+    }
+    /* Menu déroulant mobile */
+    .menu{
+        position: fixed;
+        top: 6rem;
+        left: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background-color: rgb(236, 210, 176);
+        border-bottom: 1.5px solid rgb(102, 45, 19);
+        transition: max-height 0.35s ease;
+        z-index: 999;
+    }
+    .menu.menu-ouvert{
+        max-height: 60vh;
+    }
+    .menu ul{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 0;
+    }
+    .menu ul li{
+        text-align: center;
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(102, 45, 19, 0.2);
+    }
+    .menu ul li:last-child{
+        border-bottom: none;
+    }
+    .menu li:hover{
+        transform: none;
+    }
+
+    .accueil{
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: auto;
+        min-height: 24rem;
+        padding: 8rem 6% 4rem;
+        gap: 16px;
+    }
+    .intro h1{
+        font-size: 40px;
+    }
+    .intro p{
+        font-size: 16px;
+    }
+
+    .shop{
+        margin: 6% 4%;
+    }
+    .shop h2{
+        margin: 24px 0;
+        font-size: 20px;
+    }
+    .produits{
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .produit{
+        width: auto;
+        height: auto;
+        min-height: 320px;
+    }
+    .produit img{
+        width: 100%;
+        height: auto;
+        max-height: 220px;
+        object-fit: contain;
+    }
+    .menu_infos{
+        width: 650px;
+        height: auto;
+        max-height: 950px;
+    }
+
+    .propos{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .description, .procede{
+        margin: 6% 6% 0;
+    }
+    .description h3, .procede h3{
+        font-size: 24px;
+    }
+    .description p, .procede p{
+        font-size: 16px;
+    }
+
+    footer{
+        height: auto;
+        padding: 16px 4%;
+    }
+    .menu_footer ul{
+        flex-wrap: wrap;
+        gap: 8px;
+        row-gap: 8px;
+    }
+    .contact{
+        margin-top: 10px;
+    }
+}
+
+@media(max-width:600px){
+    .produits{
+        grid-template-columns: 1fr;
+    }
+    .intro h1{
+        font-size: 32px;
+    }
+    .formulaire-section, .panier-section{
+        padding: 16px;
+    }
+    .container{
+        max-width: 100%;
+        padding: 0 4%;
+        box-sizing: border-box;
+    }
+}
+
+@media(max-height:600px) and (max-width:786px){
+    .accueil{
+        min-height: 20rem;
+        padding-top: 7rem;
+    }
+}
+/* --- Styles de Base & Ordinateur --- */
+.navbar {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(236,210,176);
+    padding: 1rem 2rem;
+    color: #ffffff;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: none;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.hamburger {
+    display: flex; /* Caché sur ordinateur */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    transition: all 0.3s ease;
+    background-color: rgb(102,45,19);
+}
+
+/* --- Styles Responsive (Mobile) --- */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Visible sur mobile */
+        z-index: 9999;
+    }
+    .hamburger span{
+        display: block;
+        z-index: 9999;    }
+        .navbar{
+            display: block;
+        }
+
+    .nav-links {
+        display: none; /* Caché par défaut sur mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgb(102,45,19);
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .nav-links li {
+        padding: 0.75rem 0;
+    }
+
+    /* CLASSE JS : Affiche le menu au clic */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* CLASSE JS : Transforme le bouton hamburger en croix (X) */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+@media screen and (max-width: 768px){
+    .header-box{
+        display: flex;
+        flex-direction:row;
+        justify-content:flex-start;
+        align-items: center;
+    }
+}
