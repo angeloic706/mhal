@@ -693,6 +693,10 @@ footer p{
         padding: 0 4%;
         box-sizing: border-box;
     }
+    .menu_infos{
+        width:15dvw;
+        height:25dvw;
+        overflow-Y:auto;
 }
 
 @media(max-height:600px) and (max-width:786px){
