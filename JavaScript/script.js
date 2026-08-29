@@ -125,3 +125,72 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+//menu_info js 
+      document.addEventListener("DOMContentLoaded", () => {
+    // 1. Ligne modifiée pour cibler tous les blocs produits de votre boutique
+    const produits = document.querySelectorAll(".produit");
+
+    // 2. Bloc pour le flou automatique (crée le calque en arrière-plan sans toucher à votre CSS)
+    const calqueFlou = document.createElement("div");
+    calqueFlou.style.position = "fixed";
+    calqueFlou.style.top = "0";
+    calqueFlou.style.left = "0";
+    calqueFlou.style.width = "100vw";
+    calqueFlou.style.height = "100vh";
+    calqueFlou.style.background = "rgba(0, 0, 0, 0.3)";
+    calqueFlou.style.backdropFilter = "blur(8px)";
+    calqueFlou.style.webkitBackdropFilter = "blur(8px)";
+    calqueFlou.style.zIndex = "9998"; // Reste sous le menu pour qu'il soit net
+    calqueFlou.style.display = "none";
+    document.body.appendChild(calqueFlou);
+
+    let menuActif = null;
+
+    // 3. Structure de la boucle pour que chaque bouton ouvre son propre menu
+    produits.forEach((produit) => {
+        const infoBtn = produit.querySelector(".infos");
+        const menuInfos = produit.querySelector(".menu_infos");
+
+        if (infoBtn && menuInfos) {
+            infoBtn.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (window.getComputedStyle(menuInfos).display === "none") {
+                    if (menuActif) menuActif.style.display = "none";
+
+                    // Affiche le flou d'arrière-plan
+                    calqueFlou.style.display = "block";
+
+                    // Force le menu à s'afficher proprement au-dessus du flou
+                    menuInfos.style.display = "block";
+                    menuInfos.style.position = "fixed";
+                    menuInfos.style.top = "50%";
+                    menuInfos.style.left = "50%";
+                    menuInfos.style.transform = "translate(-50%, -50%)";
+                    menuInfos.style.zIndex = "9999"; // Passe devant le flou pour rester NET
+                    menuInfos.style.width = "30dvw";
+                    menuInfos.style.maxWidth = "90%";
+                    menuInfos.style.height = "45dvw";
+                    menuInfos.style.overflowY = "auto";   
+                    menuInfos.style.backgroundColor = "rgb(14,43,14)"; // Fond blanc solide obligatoire pour bloquer le flou
+        
+                    menuActif = menuInfos;
+                } else {
+                    menuInfos.style.display = "none";
+                    calqueFlou.style.display = "none";
+                    menuActif = null;
+                }
+            });
+        }
+    });
+
+    // Écouteur pour fermer le menu si on clique sur le flou
+    calqueFlou.addEventListener("click", () => {
+        if (menuActif) menuActif.style.display = "none";
+        calqueFlou.style.display = "none";
+        menuActif = null;
+    });
+});
+
+        
