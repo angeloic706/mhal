@@ -169,9 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     menuInfos.style.left = "50%";
                     menuInfos.style.transform = "translate(-50%, -50%)";
                     menuInfos.style.zIndex = "9999"; // Passe devant le flou pour rester NET
-                    menuInfos.style.width = "30dvw";
+                    menuInfos.style.width = "300px";
                     menuInfos.style.maxWidth = "90%";
-                    menuInfos.style.height = "45dvw";
+                    menuInfos.style.height = "550px";
                     menuInfos.style.overflowY = "auto";   
                     menuInfos.style.backgroundColor = "rgb(14,43,14)"; // Fond blanc solide obligatoire pour bloquer le flou
         
