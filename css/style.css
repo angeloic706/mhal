@@ -217,6 +217,9 @@ main{
     overflow-y: auto;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
 }
+.menu_infos p {
+    text-align:justify;
+}
 .menu_infos p span{
     text-decoration: underline;
     font-weight: bolder;
