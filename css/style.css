@@ -1,4 +1,4 @@
-html,body{
+ html,body{
     margin: 0;
     height: 100%;
     width: 100%;
@@ -741,7 +741,7 @@ footer p{
 }
 
 .hamburger {
-    display: flex; /* Caché sur ordinateur */
+    display: none; /* Caché sur ordinateur */
     background: none;
     border: none;
     cursor: pointer;
