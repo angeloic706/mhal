@@ -67,6 +67,54 @@ header{
     color: black;
     font-family: Work Sans;
 }
+/* --- Styles de Base & Ordinateur --- */
+.navbar {
+    display: none;! important 
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(236,210,176);
+    padding: 1rem 2rem;
+    color: #ffffff;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: none;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.hamburger {
+    display: none; /* Caché sur ordinateur */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: none;
+    width: 25px;
+    height: 3px;
+    transition: all 0.5s ease-in-out;
+    background-color: rgb(102,45,19);
+}
 .icone-panier-container a{
     text-decoration: none;
 }
@@ -708,55 +756,6 @@ footer p{
         padding-top: 7rem;
     }
 }
-/* --- Styles de Base & Ordinateur --- */
-.navbar {
-    display: none;! important 
-    justify-content: space-between;
-    align-items: center;
-    background-color:rgb(236,210,176);
-    padding: 1rem 2rem;
-    color: #ffffff;
-    position: relative;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: none;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #fff;
-}
-
-.hamburger {
-    display: none; /* Caché sur ordinateur */
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.hamburger span {
-    display: none;
-    width: 25px;
-    height: 3px;
-    transition: all 0.5s ease-in-out;
-    background-color: rgb(102,45,19);
-}
-
 /* --- Styles Responsive (Mobile) --- */
 @media screen and (max-width: 768px) {
     .hamburger {
