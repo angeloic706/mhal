@@ -710,7 +710,7 @@ footer p{
 }
 /* --- Styles de Base & Ordinateur --- */
 .navbar {
-    display: none;
+    display: none;! important 
     justify-content: space-between;
     align-items: center;
     background-color:rgb(236,210,176);
