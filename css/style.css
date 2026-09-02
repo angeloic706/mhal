@@ -750,7 +750,7 @@ footer p{
 }
 
 .hamburger span {
-    display: block;
+    display: none;
     width: 25px;
     height: 3px;
     transition: all 0.5s ease-in-out;
