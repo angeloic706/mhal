@@ -537,8 +537,8 @@ footer{
     border: 0;
 }
 .contact button a img{
-    width: 80%;
-    height: 80%;
+    width: 60px;
+    height: 60px;
 }
 footer p{
     color: rgb(236, 210, 176);
